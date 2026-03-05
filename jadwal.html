@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal Belajar - TPQ AR-RAHMAN</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f0f4f8; margin: 0; padding: 0; }
+        .header { background: #1a237e; color: white; padding: 50px 20px; text-align: center; }
+        
+        .container { max-width: 800px; margin: -30px auto 50px; padding: 0 20px; }
+        .back-btn { text-decoration: none; color: white; background: #fbc02d; padding: 10px 20px; border-radius: 20px; display: inline-block; margin-bottom: 20px; font-weight: bold; color: #1a237e; }
+
+        /* Desain Card Per Hari */
+        .day-card {
+            background: white;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            display: flex;
+            overflow: hidden;
+            border-left: 10px solid #1a237e;
+        }
+
+        .day-name {
+            background: #f8fbff;
+            padding: 30px;
+            min-width: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #1a237e;
+            text-align: center;
+            border-right: 1px solid #eee;
+        }
+
+        .day-details { padding: 20px; flex-grow: 1; }
+        .info-row { display: flex; margin-bottom: 10px; align-items: flex-start; }
+        .label { font-weight: bold; min-width: 100px; color: #666; font-size: 0.9rem; }
+        .value { color: #333; font-weight: 500; }
+
+        .ustadzah-tag {
+            background: #e8eaf6;
+            color: #1a237e;
+            padding: 2px 10px;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        /* Responsive untuk HP */
+        @media (max-width: 600px) {
+            .day-card { flex-direction: column; border-left: none; border-top: 8px solid #1a237e; }
+            .day-name { padding: 15px; border-right: none; border-bottom: 1px solid #eee; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Jadwal Mengaji</h1>
+    <p>TPQ AR-RAHMAN Kedungkampil</p>
+</div>
+
+<div class="container">
+    <a href="index.html" class="back-btn">← Beranda</a>
+
+    <div class="day-card">
+        <div class="day-name">SENIN</div>
+        <div class="day-details">
+            <div class="info-row">
+                <span class="label">Pengajar:</span>
+                <span class="value"><span class="ustadzah-tag">Ustz. Anis</span> <span class="ustadzah-tag">Ustz. Ifa</span></span>
+            </div>
+            <div class="info-row">
+                <span class="label">Waktu:</span>
+                <span class="value">15.30 - 17.00 WIB</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Materi:</span>
+                <span class="value">Iqra' & Tartil Al-Qur'an Dasar</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="day-card" style="border-color: #fbc02d;">
+        <div class="day-name">SELASA</div>
+        <div class="day-details">
+            <div class="info-row">
+                <span class="label">Pengajar:</span>
+                <span class="value"><span class="ustadzah-tag">Ustz. Anis</span> <span class="ustadzah-tag">Ustz. Ifa</span></span>
+            </div>
+            <div class="info-row">
+                <span class="label">Waktu:</span>
+                <span class="value">15.30 - 17.00 WIB</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Materi:</span>
+                <span class="value">Kisah Nabi & Adab Harian</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="day-card">
+        <div class="day-name">RABU</div>
+        <div class="day-details">
+            <div class="info-row">
+                <span class="label">Pengajar:</span>
+                <span class="value"><span class="ustadzah-tag">Ustz. Anis</span> <span class="ustadzah-tag">Ustz. Ifa</span></span>
+            </div>
+            <div class="info-row">
+                <span class="label">Waktu:</span>
+                <span class="value">15.30 - 17.00 WIB</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Materi:</span>
+                <span class="value">Tahfidz (Setoran Hafalan Surat)</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="day-card" style="border-color: #fbc02d;">
+        <div class="day-name">KAMIS</div>
+        <div class="day-details">
+            <div class="info-row">
+                <span class="label">Pengajar:</span>
+                <span class="value"><span class="ustadzah-tag">Ustz. Anis</span> <span class="ustadzah-tag">Ustz. Ifa</span></span>
+            </div>
+            <div class="info-row">
+                <span class="label">Waktu:</span>
+                <span class="value">15.30 - 17.00 WIB</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Materi:</span>
+                <span class="value">Khat & Fiqih Praktis (Wudhu/Shalat)</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="day-card">
+        <div class="day-name">JUMAT</div>
+        <div class="day-details">
+            <div class="info-row">
+                <span class="label">Pengajar:</span>
+                <span class="value">Tim Pengajar</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Waktu:</span>
+                <span class="value">15.30 - 16.30 WIB</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Materi:</span>
+                <span class="value">Kegiatan Kreatif & Game Islami</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

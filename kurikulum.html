@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurikulum & Level - TPQ AR-RAHMAN</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f4f7f6; color: #333; margin: 0; padding: 0; }
+        
+        .header { background: #0d47a1; color: white; padding: 40px 20px; text-align: center; }
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+
+        .back-btn { text-decoration: none; color: #0d47a1; font-weight: bold; display: inline-block; margin-bottom: 20px; }
+
+        /* Desain Jenjang Kelas */
+        .level-card {
+            background: white;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            display: flex;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 8px solid #fbc02d;
+        }
+
+        .level-number {
+            background: #fbc02d;
+            color: #1a237e;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            min-width: 60px;
+        }
+
+        .level-content { padding: 25px; }
+        .level-content h3 { margin-top: 0; color: #1a237e; }
+        .level-content ul { padding-left: 20px; margin-bottom: 0; }
+        .level-content li { margin-bottom: 8px; }
+
+        .tag {
+            background: #e3f2fd;
+            color: #0d47a1;
+            padding: 4px 12px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 600px) {
+            .level-card { flex-direction: column; }
+            .level-number { padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Program Pendidikan</h1>
+    <p>Tahapan Belajar Santri TPQ Ar-Rahman</p>
+</div>
+
+<div class="container">
+    <a href="index.html" class="back-btn">← Kembali ke Beranda</a>
+
+    <div class="level-card">
+        <div class="level-number">01</div>
+        <div class="level-content">
+            <span class="tag">Kelas Dasar (Pra-Taman)</span>
+            <h3>Level Iqra' Dasar</h3>
+            <p>Fokus pada pengenalan huruf hijaiyah dan kelancaran membaca iqra' jilid 1 sampai 3.</p>
+            <ul>
+                <li>Mengenal Harakat (Fathah, Kasrah, Dhammah)</li>
+                <li>Hafalan Doa Makan & Tidur</li>
+                <li>Hafalan Surat Pendek (An-Nas - Al-Ikhlas)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="level-card" style="border-left-color: #1a237e;">
+        <div class="level-number" style="background: #1a237e; color: white;">02</div>
+        <div class="level-content">
+            <span class="tag">Kelas Menengah</span>
+            <h3>Level Iqra' Lanjutan</h3>
+            <p>Fokus pada penyempurnaan bacaan iqra' jilid 4 sampai 6 dan persiapan masuk Al-Qur'an.</p>
+            <ul>
+                <li>Mengenal Mad (Bacaan Panjang)</li>
+                <li>Hafalan Doa Masuk Masjid & Orang Tua</li>
+                <li>Hafalan Surat Al-Lahab - Al-Ma'un</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="level-card">
+        <div class="level-number">03</div>
+        <div class="level-content">
+            <span class="tag">Kelas Atas</span>
+            <h3>Level Al-Qur'an & Tajwid</h3>
+            <p>Santri sudah mulai membaca Mushaf Al-Qur'an dengan penerapan ilmu tajwid dasar.</p>
+            <ul>
+                <li>Hukum Nun Sukun & Tanwin</li>
+                <li>Praktik Shalat Lengkap & Dzikir</li>
+                <li>Hafalan Juz 30 (An-Naba - Al-A'la)</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Santri Baru - TPQ AR-RAHMAN</title>
+    <style>
+        /* --- CSS STYLING --- */
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #f0f4f8; 
+            color: #333; 
+            margin: 0; 
+            padding: 0; 
+        }
+
+        .header { 
+            background: #1a237e; 
+            color: white; 
+            padding: 50px 20px; 
+            text-align: center; 
+            border-bottom: 5px solid #fbc02d;
+        }
+
+        .container { 
+            max-width: 650px; 
+            margin: -40px auto 50px; 
+            padding: 0 20px; 
+        }
+
+        .back-btn { 
+            text-decoration: none; 
+            color: #1a237e; 
+            background: #fbc02d; 
+            padding: 12px 25px; 
+            border-radius: 30px; 
+            display: inline-block; 
+            margin-bottom: 20px; 
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .back-btn:hover { transform: translateX(-5px); background: #f9a825; }
+
+        .form-card { 
+            background: white; 
+            padding: 35px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1); 
+        }
+
+        .form-group { margin-bottom: 22px; }
+
+        label { 
+            display: block; 
+            font-weight: bold; 
+            margin-bottom: 8px; 
+            color: #1a237e; 
+            font-size: 0.95rem;
+        }
+
+        input, select, textarea { 
+            width: 100%; 
+            padding: 14px; 
+            border: 2px solid #e0e0e0; 
+            border-radius: 12px; 
+            box-sizing: border-box; 
+            font-size: 1rem; 
+            transition: 0.3s; 
+        }
+
+        input:focus, select:focus, textarea:focus { 
+            border-color: #fbc02d; 
+            outline: none; 
+            background: #fffdf7;
+        }
+
+        /* Tata letak dua kolom */
+        .row-flex { 
+            display: flex; 
+            gap: 15px; 
+        }
+        .row-flex div { flex: 1; }
+
+        .btn-kirim { 
+            background: #25d366; 
+            color: white; 
+            border: none; 
+            width: 100%; 
+            padding: 18px; 
+            border-radius: 12px; 
+            font-size: 1.2rem; 
+            font-weight: bold; 
+            cursor: pointer; 
+            transition: 0.3s; 
+            margin-top: 15px;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-kirim:hover { 
+            background: #128c7e; 
+            transform: translateY(-3px); 
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .note { 
+            font-size: 0.85rem; 
+            color: #777; 
+            margin-top: 20px; 
+            text-align: center; 
+            line-height: 1.4;
+        }
+
+        /* Responsive HP */
+        @media (max-width: 500px) { 
+            .row-flex { flex-direction: column; gap: 0; } 
+            .form-card { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Formulir Pendaftaran</h1>
+    <p>TPQ AR-RAHMAN Kedungkampil</p>
+</div>
+
+<div class="container">
+    <a href="index.html" class="back-btn">← Kembali ke Beranda</a>
+
+    <div class="form-card">
+        <div class="form-group">
+            <label>Nama Lengkap Santri</label>
+            <input type="text" id="nama" placeholder="Masukkan nama lengkap santri">
+        </div>
+
+        <div class="form-group">
+            <label>Tempat & Tanggal Lahir</label>
+            <div class="row-flex">
+                <div style="margin-bottom: 15px;">
+                    <input type="text" id="tempat_lahir" placeholder="Tempat (Contoh: Lamongan)">
+                </div>
+                <div>
+                    <input type="date" id="tgl_lahir">
+                </div>
+            </div>
+        </div>
+
+        <div class="row-flex">
+            <div class="form-group">
+                <label>Jenis Kelamin</label>
+                <select id="jk">
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Pendidikan Sekarang</label>
+                <select id="kelas">
+                    <optgroup label="Tingkat Dasar">
+                        <option value="Belum Sekolah">Belum Sekolah / PAUD</option>
+                        <option value="TK">TK</option>
+                        <option value="1 SD">1 SD</option>
+                        <option value="2 SD">2 SD</option>
+                        <option value="3 SD">3 SD</option>
+                        <option value="4 SD">4 SD</option>
+                        <option value="5 SD">5 SD</option>
+                        <option value="6 SD">6 SD</option>
+                    </optgroup>
+                    <optgroup label="Tingkat Menengah">
+                        <option value="SMP">SMP / MTs</option>
+                        <option value="SMA">SMA / MA / SMK</option>
+                    </optgroup>
+                    <optgroup label="Tingkat Tinggi">
+                        <option value="Kuliah">Kuliah (Mahasiswa)</option>
+                    </optgroup>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Alamat Rumah</label>
+            <textarea id="alamat" rows="2" placeholder="Alamat lengkap (Dusun, RT/RW)"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Nama Orang Tua / Wali</label>
+            <input type="text" id="ortu" placeholder="Nama Ayah atau Ibu">
+        </div>
+
+        <button class="btn-kirim" onclick="kirimWA()">
+            Daftar via WhatsApp Sekarang
+        </button>
+        
+        <p class="note">
+            ⚠️ <strong>Info:</strong> Setelah klik tombol, pastikan Anda menekan "Kirim" pada aplikasi WhatsApp yang terbuka.
+        </p>
+    </div>
+</div>
+
+<script>
+    function kirimWA() {
+        // Ambil data dari input
+        const nama = document.getElementById('nama').value;
+        const tempat = document.getElementById('tempat_lahir').value;
+        const tgl = document.getElementById('tgl_lahir').value;
+        const jk = document.getElementById('jk').value;
+        const kelas = document.getElementById('kelas').value;
+        const alamat = document.getElementById('alamat').value;
+        const ortu = document.getElementById('ortu').value;
+
+        // Validasi data kosong
+        if(nama == "" || tgl == "" || alamat == "" || ortu == "") {
+            alert("Mohon isi semua data dengan lengkap nggih Ayah/Bunda!");
+            return;
+        }
+
+        // Nomor WhatsApp Admin
+        const noWA = "6281945724692";
+        
+        // Susun Pesan (Menggunakan %0A untuk enter dan * untuk Bold)
+        const pesan = "Assalamu'alaikum Admin TPQ Ar-Rahman,%0A%0A" + 
+                      "Saya ingin mendaftarkan anak saya melalui website:%0A%0A" + 
+                      "*Nama Santri:* " + nama + "%0A" + 
+                      "*TTL:* " + tempat + ", " + tgl + "%0A" + 
+                      "*Jenis Kelamin:* " + jk + "%0A" + 
+                      "*Pendidikan Sekarang:* " + kelas + "%0A" + 
+                      "*Alamat:* " + alamat + "%0A" + 
+                      "*Orang Tua/Wali:* " + ortu + "%0A%0A" +
+                      "Mohon informasi mengenai persyaratan selanjutnya. Terima kasih.";
+
+        // Buka WhatsApp di Tab Baru
+        window.open("https://wa.me/" + noWA + "?text=" + pesan, "_blank");
+    }
+</script>
+
+</body>
+</html>

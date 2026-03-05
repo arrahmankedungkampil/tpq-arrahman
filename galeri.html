@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri Kegiatan - TPQ AR-RAHMAN</title>
+    <style>
+        /* --- 1. DASAR & TATA LETAK --- */
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #f0f4f8; 
+            margin: 0; 
+            padding: 20px; 
+            color: #333;
+        }
+
+        .header-galeri {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 { color: #1a237e; margin-bottom: 10px; }
+
+        .back-btn { 
+            text-decoration: none; 
+            color: white; 
+            background: #1a237e; 
+            padding: 12px 25px; 
+            border-radius: 30px; 
+            display: inline-block; 
+            transition: 0.3s; 
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .back-btn:hover { 
+            background: #fbc02d; 
+            color: #1a237e; 
+            transform: translateX(-5px);
+        }
+
+        /* --- 2. GRID GALERI --- */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .photo-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+            transition: 0.3s;
+            cursor: zoom-in; /* Ikon kaca pembesar */
+        }
+
+        .photo-card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 3px solid #fbc02d;
+        }
+
+        .photo-info { 
+            padding: 15px; 
+            text-align: center; 
+            font-weight: 600; 
+            color: #1a237e;
+        }
+
+        /* --- 3. LIGHTBOX (Tampilan Foto Besar) --- */
+        .lightbox {
+            display: none; /* Sembunyi secara default */
+            position: fixed;
+            z-index: 10000;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(5px); /* Efek blur di latar belakang */
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.3s;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 75%;
+            border: 4px solid white;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            animation: zoomIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.7); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 30px; right: 40px;
+            color: white; font-size: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .close-btn:hover { color: #fbc02d; transform: scale(1.2); }
+
+        #lightbox-caption {
+            color: white;
+            margin-top: 20px;
+            font-size: 1.4rem;
+            background: rgba(26, 35, 126, 0.6);
+            padding: 10px 30px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-galeri">
+        <a href="index.html" class="back-btn">← Kembali ke Beranda</a>
+        <h1>Galeri Kegiatan TPQ AR-RAHMAN</h1>
+        <p>Dokumentasi aktivitas santri dalam mencetak generasi Qur'ani</p>
+    </div>
+
+    <div class="gallery-container">
+        <div class="photo-card" onclick="openLightbox(this)">
+            <img src="foto1.jpg" alt="Lomba Adzan">
+            <div class="photo-info">Lomba Adzan Ramadhan 2024</div>
+        </div>
+
+        <div class="photo-card" onclick="openLightbox(this)">
+            <img src="foto2.jpg" alt="Mengaji Sore">
+            <div class="photo-info">Suasana Mengaji Sore Hari</div>
+        </div>
+
+        <div class="photo-card" onclick="openLightbox(this)">
+            <img src="foto3.jpg" alt="Wisata Religi">
+            <div class="photo-info">Wisata Religi ke Makam Sunan Drajat</div>
+        </div>
+
+        <div class="photo-card" onclick="openLightbox(this)">
+            <img src="foto4.jpg" alt="Praktek Shalat">
+            <div class="photo-info">Praktek Shalat Berjamaah</div>
+        </div>
+    </div>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close-btn">&times;</span>
+        <img id="lightbox-img" src="" alt="Zoomed Photo">
+        <div id="lightbox-caption"></div>
+    </div>
+
+    <script>
+        function openLightbox(element) {
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
+            const captionText = document.getElementById("lightbox-caption");
+
+            // Masukkan data dari kartu yang diklik ke dalam lightbox
+            lightboxImg.src = element.querySelector('img').src;
+            captionText.innerHTML = element.querySelector('.photo-info').innerHTML;
+
+            // Tampilkan Lightbox
+            lightbox.classList.add("active");
+            lightbox.style.display = "flex"; // Memastikan display flex aktif
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById("lightbox");
+            lightbox.classList.remove("active");
+            
+            // Beri sedikit jeda agar animasi transisi selesai sebelum display none
+            setTimeout(() => {
+                if(!lightbox.classList.contains('active')) {
+                    lightbox.style.display = "none";
+                }
+            }, 300);
+        }
+
+        // Menutup dengan tombol ESC di keyboard
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "Escape") closeLightbox();
+        });
+    </script>
+
+</body>
+</html>
